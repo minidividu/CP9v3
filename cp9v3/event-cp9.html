@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Booking — CP09 Squadra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="logo"><span>CP09</span> Squadra</div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="events.html">Événements</a>
+      <a href="shop.html">Boutique</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="nav-mobile" id="mobileNav">
+    <a href="index.html">Accueil</a>
+    <a href="events.html">Événements</a>
+    <a href="shop.html">Boutique</a>
+  </nav>
+
+  <main>
+
+    <section class="hero hero-small" style="min-height:220px;">
+      <div class="hero-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+      </div>
+      <div style="position:relative; z-index:1; max-width:1200px; margin:0 auto; width:100%;">
+        <p class="hero-kicker">Booking CP09</p>
+        <h1 style="font-size:clamp(32px,5vw,56px); font-weight:700; letter-spacing:-1.5px; margin-bottom:10px;">Organiser un <span style="color:var(--red)">event</span></h1>
+        <p style="font-size:15px; color:var(--muted2);">Showcase, soirée étudiante, festival, club — on répond à toutes les demandes sérieuses sous 48h.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;">
+
+        <!-- FORMULAIRE -->
+        <div class="booking-form-wrap" data-animate>
+          <span class="section-label">Formulaire de demande</span>
+          <h2 style="font-size:24px; margin-bottom:24px;">Envoyez votre demande</h2>
+
+          <form id="event-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Nom / Organisateur *</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" placeholder="+33 6 ...">
+              </div>
+              <div class="form-group">
+                <label for="city">Ville *</label>
+                <input type="text" id="city" name="city" placeholder="Nice, Paris, Marseille..." required>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="date">Date souhaitée</label>
+                <input type="date" id="date" name="date">
+              </div>
+              <div class="form-group">
+                <label for="eventType">Type d'événement *</label>
+                <select id="eventType" name="eventType" required>
+                  <option value="">Sélectionne un type</option>
+                  <option value="Showcase">Showcase</option>
+                  <option value="Soirée étudiante">Soirée étudiante</option>
+                  <option value="Festival">Festival</option>
+                  <option value="Club / Discothèque">Club / Discothèque</option>
+                  <option value="Événement privé">Événement privé</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="budget">Budget estimé</label>
+              <select id="budget" name="budget">
+                <option value="">Sélectionne une fourchette</option>
+                <option value="Moins de 500€">Moins de 500€</option>
+                <option value="500€ – 1 000€">500€ – 1 000€</option>
+                <option value="1 000€ – 2 000€">1 000€ – 2 000€</option>
+                <option value="Plus de 2 000€">Plus de 2 000€</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message / Détails *</label>
+              <textarea id="message" name="message" rows="5" placeholder="Décris ton événement, la jauge prévue, tes attentes..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn primary" style="width:100%; justify-content:center;">Envoyer la demande →</button>
+          </form>
+
+          <div id="event-form-status"></div>
+        </div>
+
+        <!-- INFOS BOOKING -->
+        <div style="display:flex; flex-direction:column; gap:20px;" data-animate>
+          <div>
+            <span class="section-label">Pourquoi booker CP09 ?</span>
+            <h2 style="font-size:28px; margin-bottom:16px;">L'énergie CP09<br>dans ton event</h2>
+            <p style="font-size:14px; color:var(--muted2); line-height:1.8;">
+              CP09 Squadra c'est une expérience scénique unique. Énergie brute, connexion avec le public, set list adaptée à ton événement. On a joué dans des clubs, des festivals, des soirées privées — et on met la même intensité à chaque fois.
+            </p>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:20px; display:flex; gap:16px; align-items:flex-start;">
+              <span style="font-size:24px;">🎤</span>
+              <div>
+                <h4 style="font-weight:700; margin-bottom:4px;">Performance live complète</h4>
+                <p style="font-size:13px; color:var(--muted2);">Son, lighting, set list sur mesure selon la durée et le format.</p>
+              </div>
+            </div>
+            <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:20px; display:flex; gap:16px; align-items:flex-start;">
+              <span style="font-size:24px;">📸</span>
+              <div>
+                <h4 style="font-weight:700; margin-bottom:4px;">Contenu photo & vidéo</h4>
+                <p style="font-size:13px; color:var(--muted2);">On documente chaque show pour les réseaux. Visibilité mutuelle garantie.</p>
+              </div>
+            </div>
+            <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:20px; display:flex; gap:16px; align-items:flex-start;">
+              <span style="font-size:24px;">🤝</span>
+              <div>
+                <h4 style="font-weight:700; margin-bottom:4px;">Réponse sous 48h</h4>
+                <p style="font-size:13px; color:var(--muted2);">On traite toutes les demandes sérieuses rapidement. Devis gratuit.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--bg2); border:1px solid var(--red); border-radius:var(--radius); padding:20px;">
+            <p style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--red); font-weight:700; margin-bottom:8px;">Contact direct</p>
+            <p style="font-size:13px; color:var(--muted2);">Instagram : <a href="https://www.instagram.com/cp9_squadra/" target="_blank" style="color:var(--red);">@cp9_squadra</a></p>
+            <p style="font-size:13px; color:var(--muted2);">Email : <a href="mailto:cpninesquadrartist@gmail.com" style="color:var(--red);">cpninesquadrartist@gmail.com</a></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 CP09 Squadra — Young Azur Vision — Tous droits réservés.</p>
+    <p><a href="mentions-legales.html">Mentions légales</a> · <a href="rgpd.html">Politique de confidentialité</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

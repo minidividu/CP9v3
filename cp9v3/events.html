@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CP09 Squadra — Événements, shows, showcases et soirées à Nice et en France.">
+  <title>Événements — CP09 Squadra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="logo"><span>CP09</span> Squadra</div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="events.html" class="active">Événements</a>
+      <a href="shop.html">Boutique</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="nav-mobile" id="mobileNav">
+    <a href="index.html">Accueil</a>
+    <a href="events.html" class="active">Événements</a>
+    <a href="shop.html">Boutique</a>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-left">
+          <p class="hero-kicker">Agenda CP09</p>
+          <h1>Shows &<br><span>Soirées</span></h1>
+          <p class="hero-subtitle">
+            L'énergie CP09 partout en France. Des dates exclusives, des soirées sales, des shows où tout peut arriver.
+          </p>
+          <div class="hero-pills">
+            <span class="pill">Live</span>
+            <span class="pill">Soirées</span>
+            <span class="pill">Showcases</span>
+            <span class="pill">Exclusifs</span>
+          </div>
+          <div class="hero-buttons">
+            <a href="https://billetterie.cp09squadra.com" target="_blank" class="btn primary">Billetterie officielle</a>
+            <a href="#booking" class="btn secondary">Organiser un event</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-gallery tilt-card">
+            <div class="hero-img main">
+              <img src="img/bluchris.jpeg" alt="CP09 Live">
+            </div>
+            <div class="hero-img secondary secondary-1">
+              <img src="img/aie.jpeg" alt="CP09 Aie">
+            </div>
+            <div class="hero-img secondary secondary-2">
+              <img src="img/drapeau.jpeg" alt="CP09 Drapeau">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>Nice</span><span>Marseille</span><span>Showcase</span><span>Release Party</span>
+        <span>Live</span><span>DJ Set</span><span>CP09 Squadra</span><span>Événements 2025</span>
+        <span>Nice</span><span>Marseille</span><span>Showcase</span><span>Release Party</span>
+        <span>Live</span><span>DJ Set</span><span>CP09 Squadra</span><span>Événements 2025</span>
+      </div>
+    </div>
+
+    <!-- PROCHAINS EVENTS -->
+    <section class="section">
+      <span class="section-label">Agenda</span>
+      <h2>Prochains événements</h2>
+      <p class="section-subtitle">Les dates officielles du label. Billetterie en ligne disponible.</p>
+      <div class="divider"></div>
+
+      <div class="card-grid">
+
+        <article class="card tilt-card" data-animate>
+          <div style="padding:24px 24px 0;">
+            <span class="tag">15 DEC · Nice</span>
+          </div>
+          <div class="card-body">
+            <h3>Release Party MOULAGANGSHIT</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:1px;">Nice Centre · 21h00</p>
+            <p>Release party officielle, invités surprises, DJ sets, freestyles impros et merch exclusif en quantité limitée.</p>
+            <a href="https://billetterie.cp09squadra.com" target="_blank" class="btn primary small" style="margin-top:20px; display:inline-flex;">Acheter une place →</a>
+          </div>
+        </article>
+
+        <article class="card tilt-card" data-animate>
+          <div style="padding:24px 24px 0;">
+            <span class="tag">28 JAN · Marseille</span>
+          </div>
+          <div class="card-body">
+            <h3>Showcase CP09 Squadra</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:1px;">Marseille Club · 22h30</p>
+            <p>Showcase complet du label, performances exclusives, surprises et ambiance sale. Une nuit Marseillaise avec CP09.</p>
+            <a href="https://billetterie.cp09squadra.com" target="_blank" class="btn primary small" style="margin-top:20px; display:inline-flex;">Acheter une place →</a>
+          </div>
+        </article>
+
+        <article class="card tilt-card" data-animate>
+          <div style="padding:24px 24px 0;">
+            <span class="tag">3 AVR · Nice</span>
+          </div>
+          <div class="card-body">
+            <h3>CP09 SQUADRA — Soirée & Clip</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:1px;">Le Vault + Villa Privée · 20h00</p>
+            <p>Soirée exclusive au Vault (20h–00h) suivie d'un after et tournage de clip en villa privée. L'événement de l'année à Nice.</p>
+            <a href="https://billetterie.cp09squadra.com" target="_blank" class="btn primary small" style="margin-top:20px; display:inline-flex;">Acheter une place →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- GALERIE LIVE -->
+    <section class="section-alt">
+      <div style="max-width:1200px; margin:0 auto;">
+        <span class="section-label">On stage</span>
+        <h2>CP09 sur scène</h2>
+        <p class="section-subtitle">L'énergie ne se décrit pas, elle se vit.</p>
+
+        <div class="card-grid">
+          <div class="card tilt-card" data-animate>
+            <div class="card-img full-parallax">
+              <img src="img/groupe.jpeg" alt="CP09 Groupe">
+              <div class="full-parallax-content">
+                <span class="tag">Live</span>
+                <h3>La Squad en action</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card tilt-card" data-animate>
+            <div class="card-img full-parallax">
+              <img src="img/bluchris.jpeg" alt="CP09 Show">
+              <div class="full-parallax-content">
+                <span class="tag">Show</span>
+                <h3>Sur scène, on lâche tout</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card tilt-card" data-animate>
+            <div class="card-img full-parallax">
+              <img src="img/Njoka.jpeg" alt="CP09 Studio">
+              <div class="full-parallax-content">
+                <span class="tag">Freestyle</span>
+                <h3>Énergie pure, authentique</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="section" id="booking">
+      <span class="section-label">Booking</span>
+      <h2>Organiser un événement CP09</h2>
+      <p class="section-subtitle">
+        Envie de booker CP09 pour un showcase, une soirée, une scène, un festival ?
+        On répond à toutes les demandes sérieuses.
+      </p>
+      <div class="divider"></div>
+
+      <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:260px; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px;" data-animate>
+          <p style="font-size:30px; margin-bottom:12px;">🎤</p>
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Showcase</h3>
+          <p style="font-size:13px; color:var(--muted2);">Performances live complètes du label. Son, lumière, set list sur mesure.</p>
+        </div>
+        <div style="flex:1; min-width:260px; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px;" data-animate>
+          <p style="font-size:30px; margin-bottom:12px;">🎉</p>
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Soirée privée</h3>
+          <p style="font-size:13px; color:var(--muted2);">Soirée étudiante, anniversaire, événement corporate — CP09 met l'ambiance.</p>
+        </div>
+        <div style="flex:1; min-width:260px; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px;" data-animate>
+          <p style="font-size:30px; margin-bottom:12px;">🎪</p>
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Festival / Club</h3>
+          <p style="font-size:13px; color:var(--muted2);">On s'adapte à tous les formats. Contact installation, son, prestations DJ possibles.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
+        <a href="event-cp9.html" class="btn primary">Envoyer une demande de booking →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 CP09 Squadra — Young Azur Vision — Tous droits réservés.</p>
+    <p><a href="mentions-legales.html">Mentions légales</a> · <a href="rgpd.html">Politique de confidentialité</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
