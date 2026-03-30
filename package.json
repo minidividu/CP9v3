@@ -1,0 +1,20 @@
+{
+  "name": "cp9-boutique",
+  "version": "1.0.0",
+  "description": "Boutique CP09 Serverless",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "stripe": "^14.25.0",
+    "resend": "^2.0.0"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

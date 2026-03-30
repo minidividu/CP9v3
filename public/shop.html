@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Boutique officielle CP09 Squadra — T-shirts, merch, drops limités. Paiement sécurisé Stripe.">
+  <title>Boutique — CP09 Squadra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="logo"><span>CP09</span> Squadra</div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="events.html">Événements</a>
+      <a href="shop.html" class="active">Boutique</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="nav-mobile" id="mobileNav">
+    <a href="index.html">Accueil</a>
+    <a href="events.html">Événements</a>
+    <a href="shop.html" class="active">Boutique</a>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero hero-small" style="min-height:260px;">
+      <div class="hero-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+      </div>
+      <div style="position:relative; z-index:1; max-width:1200px; margin:0 auto; width:100%;">
+        <p class="hero-kicker">Merch officiel</p>
+        <h1 style="font-size:clamp(36px,5vw,64px); font-weight:700; letter-spacing:-2px; margin-bottom:12px;">Boutique <span style="color:var(--red)">CP09</span></h1>
+        <p style="font-size:15px; color:var(--muted2);">T-shirts, drops limités. Paiement sécurisé via Stripe. Impression qualité premium.</p>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>Merch CP09</span><span>T-shirts</span><span>Drops limités</span><span>Qualité premium</span>
+        <span>Paiement Stripe</span><span>Livraison France</span><span>Merch CP09</span><span>T-shirts</span>
+        <span>Drops limités</span><span>Qualité premium</span><span>Paiement Stripe</span><span>Livraison France</span>
+      </div>
+    </div>
+
+    <!-- PRODUITS -->
+    <section class="section">
+      <span class="section-label">Catalogue</span>
+      <h2>Produits</h2>
+      <p class="section-subtitle">Chaque pièce est produite en quantité limitée. Ne rate pas le drop.</p>
+      <div class="divider"></div>
+
+      <div class="card-grid shop-grid">
+
+        <!-- Produit 1 -->
+        <article class="card product-card tilt-card" data-animate>
+          <div class="product-img-wrap">
+            <img src="img/T-shirtCP9.png" alt="T-shirt MOULAGANG">
+          </div>
+          <div class="card-body">
+            <span class="tag" style="margin-bottom:10px;">Disponible</span>
+            <h3>T-shirt "MOULAGANG"</h3>
+            <p class="product-desc">T-shirt noir, visuel <strong>MOULAGANGSHIT</strong> sur le devant. Impression haute qualité sérigraphie.</p>
+            <div class="product-options">
+              <label for="size-tee-moulagang">Taille</label>
+              <select id="size-tee-moulagang" class="product-size-select">
+                <option value="">Choisir une taille</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
+            <div class="product-bottom">
+              <div class="price">29,90 €</div>
+              <button class="btn small primary add-to-cart"
+                data-id="tee-moulagang"
+                data-title='T-shirt "MOULAGANG"'
+                data-price="29.9"
+                data-printful="123456789">
+                + Panier
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produit 2 -->
+        <article class="card product-card tilt-card" data-animate>
+          <div class="product-img-wrap">
+            <img src="img/t-shirtcp9.jpeg" alt="T-shirt CP09">
+          </div>
+          <div class="card-body">
+            <span class="tag" style="margin-bottom:10px;">Disponible</span>
+            <h3>T-shirt CP9</h3>
+            <p class="product-desc">T-shirt logo CP09. Parfait pour les nuits après les shows et les sessions studio.</p>
+            <div class="product-options">
+              <label for="size-tee-cp9">Taille</label>
+              <select id="size-tee-cp9" class="product-size-select">
+                <option value="">Choisir une taille</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
+            <div class="product-bottom">
+              <div class="price">29,00 €</div>
+              <button class="btn small primary add-to-cart"
+                data-id="tee-cp9"
+                data-title="T-shirt CP09 Squadra"
+                data-price="29"
+                data-printful="123456788">
+                + Panier
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Coming soon -->
+        <article class="card" data-animate style="opacity:.5; pointer-events:none;">
+          <div class="product-img-wrap" style="background:var(--bg3); display:flex; align-items:center; justify-content:center; aspect-ratio:1;">
+            <p style="color:var(--muted); font-size:13px; text-align:center; letter-spacing:2px; text-transform:uppercase;">Coming soon</p>
+          </div>
+          <div class="card-body">
+            <span class="tag" style="background:var(--bg3); color:var(--muted); border:1px solid var(--border); margin-bottom:10px;">À venir</span>
+            <h3>Prochain drop</h3>
+            <p class="product-desc">Nouvelle pièce en préparation. Inscris-toi à la newsletter pour être le premier informé.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PANIER -->
+    <section class="section" id="cart-section" style="padding-top:0;">
+      <span class="section-label">Mon panier</span>
+      <h2>Récapitulatif</h2>
+      <p class="section-subtitle">Vérifie ta commande avant de passer au paiement sécurisé Stripe.</p>
+      <div class="divider"></div>
+
+      <div id="cart-empty" class="cart-empty-box">
+        <p>Ton panier est vide.</p>
+        <p class="note">Ajoute un produit ci-dessus pour commencer ta commande.</p>
+      </div>
+
+      <div id="cart-content" class="cart-box" style="display:none;">
+        <div class="cart-table-wrap">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Produit</th>
+                <th>Taille</th>
+                <th>Qté</th>
+                <th>Prix unit.</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cart-items"></tbody>
+          </table>
+        </div>
+        <div class="cart-footer">
+          <p id="cart-total" class="cart-total"></p>
+          <button class="btn primary" id="checkout-btn">Payer maintenant →</button>
+        </div>
+        <p class="note">Paiement géré par Stripe. Email de confirmation envoyé automatiquement après validation.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 CP09 Squadra — Young Azur Vision — Tous droits réservés.</p>
+    <p><a href="mentions-legales.html">Mentions légales</a> · <a href="rgpd.html">Politique de confidentialité</a></p>
+  </footer>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    window.STRIPE_PUBLIC_KEY = "pk_test_51SPOOsLHBFYisl1rbplikS27qwpQbBDMZyGoV9beF6hWnIgJzXJn0VWW9c8tFq2M2tHensjCXgXs7xL5VVd8Q7OE00VA4RdiRs";
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
