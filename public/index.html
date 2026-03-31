@@ -3,300 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CP09 Squadra — Label rap indépendant basé à Nice. Trap, drill, égotrip. Événements, merch officiel, clips.">
-  <title>CP09 Squadra — Label indépendant · Nice</title>
+  <meta name="description" content="Génère une cover professionnelle noir & blanc pour ton projet musical en quelques secondes. Téléchargement HD 3000x3000px pour 5€.">
+  <title>CP9 Tools — Générateur de Cover pour Artistes</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header" id="header">
-    <div class="logo">
-      <span>CP09</span> Squadra
-      <img src="img/slogan.png" alt="CP09 Squadra" class="logo-img">
-    </div>
+    <div class="logo"><span>CP9</span> Tools</div>
     <nav class="nav">
       <a href="index.html" class="active">Accueil</a>
-      <a href="events.html">Événements</a>
-      <a href="shop.html">Boutique</a>
+      <a href="generator.html">Cover Generator</a>
     </nav>
     <button class="burger" id="burgerBtn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </header>
 
-  <!-- NAV MOBILE -->
   <nav class="nav-mobile" id="mobileNav">
     <a href="index.html" class="active">Accueil</a>
-    <a href="events.html">Événements</a>
-    <a href="shop.html">Boutique</a>
+    <a href="generator.html">Cover Generator</a>
   </nav>
 
   <main>
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" style="min-height:92vh;">
       <div class="hero-orbs">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
       </div>
-
-      <div class="hero-inner">
-
-        <div class="hero-left">
-          <p class="hero-kicker">Nice · Label indépendant · 2025</p>
-          <h1>CP09<br><span>Squadra</span></h1>
-          <p class="hero-subtitle">
-            Trap, drill, égotrip et histoires vraies.
-            Projet sérieux, vibes sombres — énergie scène & studio.
-          </p>
-
-          <div class="hero-pills">
-            <span class="pill">Label</span>
-            <span class="pill">Événements</span>
-            <span class="pill">Merch officiel</span>
-          </div>
-
-          <div class="hero-buttons">
-            <a href="events.html" class="btn primary">Prochains événements</a>
-            <a href="shop.html" class="btn secondary">Boutique officielle</a>
-          </div>
-
-          <div class="hero-meta">
-            <span>🔥 Dernière sortie : <strong>MOULAGANGSHIT</strong></span>
-            <span>🎧 Dispo sur toutes les plateformes</span>
-          </div>
+      <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;width:100%;text-align:center;">
+        <p class="hero-kicker">Outil pour artistes</p>
+        <h1 style="font-size:clamp(40px,6vw,80px);font-weight:700;letter-spacing:-3px;line-height:1.05;margin-bottom:20px;">
+          Ta cover.<br><span style="color:var(--red)">En 30 secondes.</span>
+        </h1>
+        <p style="font-size:17px;color:var(--muted2);max-width:480px;margin:0 auto 36px;line-height:1.7;">
+          Importe ton image, entre le nom de l'artiste et le titre. Le générateur applique un filtre noir & blanc contrasté avec du grain — style pro, rendu unique.
+        </p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="generator.html" class="btn primary" style="font-size:16px;padding:14px 32px;">
+            Créer ma cover →
+          </a>
+          <a href="#how" class="btn ghost" style="font-size:16px;padding:14px 32px;">
+            Comment ça marche
+          </a>
         </div>
-
-        <div class="hero-right">
-          <div class="hero-gallery tilt-card">
-            <div class="hero-img main">
-              <img src="img/Njoka.jpeg" alt="CP09 Squadra">
-            </div>
-            <div class="hero-img secondary secondary-1">
-              <img src="img/aie.jpeg" alt="CP09 Aie">
-            </div>
-            <div class="hero-img secondary secondary-2">
-              <img src="img/drapeau.jpeg" alt="CP09 Drapeau">
-            </div>
-          </div>
-        </div>
-
+        <p style="margin-top:20px;font-size:13px;color:var(--muted);">
+          Prévisualisation <strong style="color:var(--white);">gratuite</strong> · HD 3000×3000px à <strong style="color:var(--red);">5€</strong>
+        </p>
       </div>
-
-      <div class="scroll-indicator">Scroll</div>
     </section>
 
-    <!-- ===================== MARQUEE ===================== -->
-    <div class="marquee-strip">
-      <div class="marquee-track">
-        <span>CP09 Squadra</span>
-        <span>Nice</span>
-        <span>Moulagangshit</span>
-        <span>Trap</span>
-        <span>Drill</span>
-        <span>Label Indépendant</span>
-        <span>CP09 Squadra</span>
-        <span>Nice</span>
-        <span>Moulagangshit</span>
-        <span>Trap</span>
-        <span>Drill</span>
-        <span>Label Indépendant</span>
-        <span>CP09 Squadra</span>
-        <span>Nice</span>
-        <span>Moulagangshit</span>
-        <span>Trap</span>
-        <span>Drill</span>
-        <span>Label Indépendant</span>
-      </div>
-    </div>
-
-    <!-- ===================== STATS ===================== -->
-    <div class="stats-strip section">
-      <div class="stat-item" data-animate>
-        <span class="stat-value" data-count="12">12</span>
-        <span class="stat-label">Sorties</span>
-      </div>
-      <div class="stat-item" data-animate>
-        <span class="stat-value" data-count="7">7</span>
-        <span class="stat-label">Showcases</span>
-      </div>
-      <div class="stat-item" data-animate>
-        <span class="stat-value" data-count="5">5</span>
-        <span class="stat-label">Membres</span>
-      </div>
-    </div>
-
-    <!-- ===================== DERNIÈRE SORTIE ===================== -->
-    <section class="section" data-animate>
-      <span class="section-label">Dernière sortie</span>
-      <h2>MOULAGANGSHIT</h2>
-      <p class="section-subtitle">Banger sombre signé CP09 Squadra. 100% rue, 0% bullshit.</p>
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <span class="section-label">Comment ça marche</span>
+      <h2>3 étapes, c'est tout</h2>
+      <p class="section-subtitle">Pas besoin de Photoshop. Pas besoin d'un graphiste.</p>
       <div class="divider"></div>
 
-      <div class="card-grid" style="grid-template-columns: 1fr 1.4fr; gap: 24px;">
+      <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:40px;">
 
-        <div class="card card-last-release tilt-card" data-animate>
-          <div class="card-img full-parallax">
-            <img src="img/embryons_maudit.jpeg" alt="Cover Moulagangshit">
-            <div class="full-parallax-content">
-              <span class="tag">Single · Out now</span>
-              <h3>MOULAGANGSHIT</h3>
-              <p>Banger sombre signé CP09 Squadra.</p>
-              <div class="release-actions">
-                <a href="https://open.spotify.com/intl-fr/track/0sNHAPNSDMMggyxKN9fxfn?si=29cfe590a5004ab7" class="btn small primary" target="_blank" rel="noreferrer">Écouter</a>
-                <a href="https://youtu.be/VGBM9AkgPBc?si=6SLYxV8KFqid9e0P" class="btn small secondary" target="_blank" rel="noreferrer">Voir le clip</a>
-              </div>
-            </div>
-          </div>
+        <div class="card" data-animate style="text-align:center;padding:36px 24px;">
+          <div style="font-size:48px;margin-bottom:16px;">🖼</div>
+          <h3 style="margin-bottom:10px;">1. Importe</h3>
+          <p style="color:var(--muted2);font-size:14px;line-height:1.6;">Glisse n'importe quelle photo — portrait, paysage, artwork. JPG, PNG, WEBP.</p>
         </div>
 
-        <div style="display:flex; flex-direction:column; justify-content:center; gap:24px;" data-animate>
-          <div>
-            <p style="font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--red); font-weight:700; margin-bottom:10px; font-family:var(--font-mono)">À propos du son</p>
-            <p style="font-size:16px; line-height:1.8; color:var(--muted2)">
-              MOULAGANGSHIT, c'est la synthèse de l'identité CP09. Un son lourd, des textes tranchants,
-              une prod qui colle à la rue niçoise. Pas de compromis — que de l'authenticité.
-            </p>
-          </div>
-          <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a href="https://open.spotify.com/intl-fr/track/0sNHAPNSDMMggyxKN9fxfn?si=29cfe590a5004ab7" class="btn primary" target="_blank" rel="noreferrer">Écouter sur Spotify</a>
-            <a href="https://youtu.be/VGBM9AkgPBc?si=6SLYxV8KFqid9e0P" class="btn secondary" target="_blank" rel="noreferrer">Voir le clip YouTube</a>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a href="https://open.spotify.com/intl-fr/artist/6Szkds7jFLYv6CtiNMzPTQ?si=ESvHtdJ6TwWdglhuqsWldg" class="btn ghost small" target="_blank" rel="noreferrer">Toutes nos sorties →</a>
-          </div>
+        <div class="card" data-animate style="text-align:center;padding:36px 24px;">
+          <div style="font-size:48px;margin-bottom:16px;">✏️</div>
+          <h3 style="margin-bottom:10px;">2. Personnalise</h3>
+          <p style="color:var(--muted2);font-size:14px;line-height:1.6;">Nom de l'artiste, titre du projet, choix de la police. Prévisualise en temps réel.</p>
+        </div>
+
+        <div class="card" data-animate style="text-align:center;padding:36px 24px;">
+          <div style="font-size:48px;margin-bottom:16px;">⬇️</div>
+          <h3 style="margin-bottom:10px;">3. Télécharge</h3>
+          <p style="color:var(--muted2);font-size:14px;line-height:1.6;">Paiement sécurisé via Stripe. Fichier PNG 3000×3000px prêt pour Spotify, Distrokid, etc.</p>
         </div>
 
       </div>
     </section>
 
-    <!-- ===================== CP09 EN IMAGES ===================== -->
-    <section class="section-alt">
-      <div style="max-width:1200px; margin:0 auto;">
-        <span class="section-label">Univers CP09</span>
-        <h2>Ambiance studio, rue & scène</h2>
-        <p class="section-subtitle">Quelques visuels pour sentir l'univers CP09 Squadra. Clique pour explorer.</p>
-
-        <div class="card-grid two-col">
-
-          <a href="event-cp9.html" class="card tilt-card" data-animate style="text-decoration:none;">
-            <div class="card-img full-parallax">
-              <img src="img/aie.jpeg" alt="CP09 Aie">
-              <div class="full-parallax-content">
-                <span class="tag">Book CP09</span>
-                <h3>Organiser un event avec CP09</h3>
-                <p>Showcase, club, festival, soirée étudiante — clique pour réserver la Squad.</p>
-                <div class="release-actions">
-                  <span class="btn small primary">Demander un devis</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a href="shop.html" class="card tilt-card" data-animate style="text-decoration:none;">
-            <div class="card-img full-parallax">
-              <img src="img/drapeau.jpeg" alt="CP09 Drapeau">
-              <div class="full-parallax-content">
-                <span class="tag">Merch CP09</span>
-                <h3>Boutique officielle</h3>
-                <p>T-shirts, hoodies, drops limités. Paiement sécurisé via Stripe.</p>
-                <div class="release-actions">
-                  <span class="btn small secondary">Accéder à la boutique</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== ARTISTES ===================== -->
-    <section class="section">
-      <span class="section-label">Le crew</span>
-      <h2>Les artistes du label</h2>
-      <p class="section-subtitle">Le noyau dur de CP09 Squadra. Chaque membre porte un univers, la même rage, le même objectif.</p>
+    <!-- PRICING -->
+    <section class="section" style="background:var(--bg2);border-radius:var(--radius-lg);padding:60px 40px;max-width:900px;margin:0 auto 60px;">
+      <span class="section-label">Tarif</span>
+      <h2>Simple et transparent</h2>
       <div class="divider"></div>
 
-      <div class="card-grid artists-grid">
-        <article class="card artist-card tilt-card" data-animate>
-          <img src="img/bluchris.jpeg" alt="Artiste 1">
-          <div class="card-body">
-            <span class="tag" style="margin-bottom:8px">Rappeur</span>
-            <h3>Artiste 1</h3>
-            <p>Rappeur, writer, architecte de punchlines. Présent sur les premiers projets CP09 depuis le début.</p>
-          </div>
-        </article>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px;">
 
-        <article class="card artist-card tilt-card" data-animate>
-          <img src="img/Njoka.jpeg" alt="Artiste 2">
-          <div class="card-body">
-            <span class="tag" style="margin-bottom:8px">Rappeur · DA</span>
-            <h3>Artiste 2</h3>
-            <p>Vision globale, plume et direction artistique. Entre studio, clip et stratégie label.</p>
-          </div>
-        </article>
+        <div class="card" style="padding:32px;border:1px solid var(--border2);">
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted2);margin-bottom:16px;">Prévisualisation</p>
+          <p style="font-size:48px;font-weight:700;margin-bottom:8px;">Gratuit</p>
+          <p style="color:var(--muted2);font-size:14px;margin-bottom:24px;">Aperçu 600×600px dans le navigateur.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--muted2);">
+            <li>✓ Filtre noir & blanc</li>
+            <li>✓ Grain & contraste</li>
+            <li>✓ Texte personnalisé</li>
+            <li style="color:var(--muted);">✗ Téléchargement</li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding:32px;border:2px solid var(--red);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:16px;right:16px;background:var(--red);color:#fff;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;letter-spacing:1px;">POPULAIRE</div>
+          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:16px;">HD Download</p>
+          <p style="font-size:48px;font-weight:700;margin-bottom:8px;">5€</p>
+          <p style="color:var(--muted2);font-size:14px;margin-bottom:24px;">Fichier PNG 3000×3000px, prêt à distribuer.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--muted2);">
+            <li>✓ Filtre noir & blanc</li>
+            <li>✓ Grain & contraste</li>
+            <li>✓ Texte personnalisé</li>
+            <li>✓ <strong style="color:var(--white);">PNG 3000×3000px</strong></li>
+            <li>✓ Paiement Stripe sécurisé</li>
+          </ul>
+          <a href="generator.html" class="btn primary" style="margin-top:24px;display:block;text-align:center;">Créer ma cover →</a>
+        </div>
+
       </div>
     </section>
 
-    <!-- ===================== RÉSEAUX ===================== -->
-    <section class="section-alt">
-      <div style="max-width:1200px; margin:0 auto;">
-        <span class="section-label">Communauté</span>
-        <h2>Reste connecté</h2>
-        <p class="section-subtitle">Suis CP09 Squadra pour ne rien rater : clips, freestyles, scènes et drops de merch.</p>
-
-        <div class="socials" data-animate>
-          <a href="https://www.instagram.com/cp9_squadra/" class="social-link" target="_blank" rel="noreferrer">📸 Instagram</a>
-          <a href="https://www.tiktok.com/@cp9_squadra" class="social-link" target="_blank" rel="noreferrer">🎵 TikTok</a>
-          <a href="https://www.youtube.com/@CPnine9" class="social-link" target="_blank" rel="noreferrer">▶️ YouTube</a>
-          <a href="https://open.spotify.com/intl-fr/artist/6Szkds7jFLYv6CtiNMzPTQ?si=ESvHtdJ6TwWdglhuqsWldg" class="social-link" target="_blank" rel="noreferrer">🎧 Spotify</a>
-        </div>
-
-        <div data-animate>
-          <p style="font-size:13px; color:var(--muted2); margin-bottom:12px; text-transform:uppercase; letter-spacing:2px; font-weight:600; font-size:11px;">Newsletter — reste dans la boucle</p>
-          <form id="newsletterForm" class="newsletter-form">
-            <input type="email" id="email" placeholder="Ton adresse email" required>
-            <button type="submit" class="btn primary">S'inscrire</button>
-          </form>
-          <p id="newsletterMsg"></p>
-        </div>
-      </div>
+    <!-- CTA FINAL -->
+    <section class="section" style="text-align:center;padding-bottom:80px;">
+      <h2 style="font-size:clamp(28px,4vw,52px);margin-bottom:16px;">Prêt à créer ta cover ?</h2>
+      <p style="color:var(--muted2);margin-bottom:32px;font-size:16px;">Aucun compte requis. Résultat immédiat.</p>
+      <a href="generator.html" class="btn primary" style="font-size:16px;padding:16px 40px;">Lancer le générateur →</a>
     </section>
 
   </main>
 
   <footer class="footer">
-    <p>© 2025 CP09 Squadra — Young Azur Vision — Tous droits réservés.</p>
-    <p>
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="rgpd.html">Politique de confidentialité</a>
-    </p>
+    <p>© 2025 CP9 Tools — Tous droits réservés.</p>
+    <p><a href="mentions-legales.html">Mentions légales</a> · <a href="rgpd.html">Politique de confidentialité</a></p>
   </footer>
 
   <script src="app.js"></script>
-  <script>
-    // Newsletter
-    document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const msg = document.getElementById("newsletterMsg");
-      try {
-        const res = await fetch("/subscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email })
-        });
-        const data = await res.json();
-        msg.textContent = data.message || "Inscription réussie !";
-        msg.className = "success";
-        e.target.reset();
-      } catch {
-        msg.textContent = "Erreur, réessaie plus tard.";
-      }
-    });
-  </script>
 </body>
 </html>
