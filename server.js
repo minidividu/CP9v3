@@ -31,7 +31,10 @@ app.use((req, res, next) => {
 
 // --- ROUTES ---
 
-app.get("/", (req, res) => res.send("🚀 Serveur CP09 en ligne !"));
+// --- ROUTE CONFIG (clé publique Stripe) ---
+app.get("/config", (req, res) => {
+  res.json({ stripePublicKey: process.env.STRIPE_PUBLIC_KEY || "" });
+});
 
 // --- ROUTE ÉVÉNEMENT (MISE À JOUR COMPLÈTE) ---
 app.post("/event-request", async (req, res) => {
@@ -99,6 +102,28 @@ app.post("/create-checkout-session", async (req, res) => {
     res.json({ id: session.id });
   } catch (err) { 
     res.status(500).json({ message: err.message }); 
+  }
+});
+
+// --- ROUTE GENERATOR (Stripe 5€) ---
+app.post("/create-generator-session", async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: [{
+        price_data: {
+          currency: "eur",
+          unit_amount: 500,
+          product_data: { name: "Cover HD 3000×3000 — CP9 Generator" }
+        },
+        quantity: 1
+      }],
+      success_url: `${req.headers.origin}/generator-succes.html`,
+      cancel_url: `${req.headers.origin}/generator.html`,
+    });
+    res.json({ id: session.id });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 
