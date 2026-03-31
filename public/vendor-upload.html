@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendre mon Pack — CP9 Tools</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .upload-form { max-width: 640px; margin: 0 auto; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .form-group label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted2); }
+    .form-group input {
+      background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius);
+      padding: 13px 16px; color: var(--white); font-family: var(--font); font-size: 15px;
+      transition: var(--transition); width: 100%;
+    }
+    .form-group input:focus { outline: none; border-color: var(--red); }
+
+    .price-wrap { position: relative; }
+    .price-wrap input { padding-left: 36px; }
+    .price-currency {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--muted2); font-size: 15px; pointer-events: none;
+    }
+
+    .drop-zone {
+      border: 2px dashed var(--border2); border-radius: var(--radius-lg);
+      padding: 48px 24px; text-align: center; cursor: pointer;
+      transition: var(--transition); background: var(--bg2); position: relative;
+    }
+    .drop-zone:hover, .drop-zone.drag-over { border-color: var(--red); background: rgba(255,45,45,.05); }
+    .drop-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .drop-zone-icon { font-size: 44px; margin-bottom: 12px; display: block; }
+    .drop-zone p { color: var(--muted2); font-size: 14px; margin: 4px 0; }
+    .drop-zone .file-name { color: var(--red); font-weight: 600; margin-top: 10px; font-size: 13px; }
+
+    .fee-box {
+      background: rgba(255,45,45,.07); border: 1px solid rgba(255,45,45,.25);
+      border-radius: var(--radius); padding: 18px 20px; margin: 28px 0;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .fee-box-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .fee-box p { font-size: 13px; color: var(--muted2); line-height: 1.6; margin: 0; }
+    .fee-box strong { color: var(--white); }
+
+    .progress-wrap {
+      display: none; background: var(--bg2); border-radius: var(--radius);
+      overflow: hidden; height: 6px; margin: 16px 0;
+    }
+    .progress-bar {
+      height: 100%; background: var(--red); width: 0%;
+      transition: width 0.3s ease; border-radius: var(--radius);
+    }
+    .progress-label { font-size: 12px; color: var(--muted2); margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="logo"><span>CP9</span> Tools</div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="generator.html">Cover Generator</a>
+      <a href="vendor-upload.html" class="active">Vendre un Pack</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <nav class="nav-mobile" id="mobileNav">
+    <a href="index.html">Accueil</a>
+    <a href="generator.html">Cover Generator</a>
+    <a href="vendor-upload.html" class="active">Vendre un Pack</a>
+  </nav>
+
+  <main>
+    <section class="hero hero-small" style="min-height:200px;">
+      <div class="hero-orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+      <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;">
+        <p class="hero-kicker">Vendeurs</p>
+        <h1 style="font-size:clamp(28px,4vw,52px);font-weight:700;letter-spacing:-2px;margin-bottom:8px;">
+          Publie ton <span style="color:var(--red)">Sample Pack</span>
+        </h1>
+        <p style="color:var(--muted2);font-size:14px;">Upload ton .zip, fixe ton prix, et vends directement via Stripe.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="upload-form">
+
+        <div class="form-group">
+          <label for="packTitle">Nom du pack *</label>
+          <input type="text" id="packTitle" placeholder="ex : Dark Trap Drums Vol.1" maxlength="80" required>
+        </div>
+
+        <div class="form-group">
+          <label for="vendorEmail">Ton adresse email *</label>
+          <input type="email" id="vendorEmail" placeholder="toi@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="packPrice">Prix de vente (€) *</label>
+          <div class="price-wrap">
+            <span class="price-currency">€</span>
+            <input type="number" id="packPrice" placeholder="9.99" min="1" max="999" step="0.01" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Fichier ZIP du pack *</label>
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="zipInput" accept=".zip,application/zip,application/x-zip-compressed">
+            <span class="drop-zone-icon">📦</span>
+            <p>Glisse ton fichier .zip ici ou clique pour importer</p>
+            <p>Maximum 200 Mo</p>
+            <p class="file-name" id="zipFileName"></p>
+          </div>
+          <div class="progress-label" id="progressLabel" style="display:none;">Upload en cours…</div>
+          <div class="progress-wrap" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
+        </div>
+
+        <div class="fee-box">
+          <span class="fee-box-icon">💳</span>
+          <p>
+            <strong>Frais d'activation : 9€</strong><br>
+            Après l'upload, un paiement unique de 9€ est requis pour publier ton pack sur la plateforme.
+            Une fois activé, ton pack est en ligne immédiatement et tu reçois 100% des ventes via Stripe.
+          </p>
+        </div>
+
+        <div id="statusMsg" style="display:none;padding:14px;border-radius:var(--radius);font-size:14px;margin-bottom:16px;"></div>
+
+        <button class="btn primary" id="submitBtn" style="width:100%;font-size:16px;padding:14px;">
+          Uploader et payer l'activation (9€) →
+        </button>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 CP9 Tools — Tous droits réservés.</p>
+    <p><a href="mentions-legales.html">Mentions légales</a> · <a href="rgpd.html">Politique de confidentialité</a></p>
+  </footer>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>window.STRIPE_PUBLIC_KEY = "pk_live_51SPOOXPyiTtxLPqUephWinG6z17VLrFnyZjE9k20CI2lurzmrkSWVnVI89O2PJy09GXXbd764Ahr9jPuKIQO01tH00UOOfdY4z";</script>
+
+  <script type="module">
+    import { upload } from 'https://esm.sh/@vercel/blob/client';
+
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header?.classList.toggle('scrolled', window.scrollY > 20));
+
+    // Burger
+    document.getElementById('burgerBtn')?.addEventListener('click', () => {
+      document.getElementById('burgerBtn').classList.toggle('open');
+      document.getElementById('mobileNav').classList.toggle('open');
+    });
+
+    // Drop zone
+    const dropZone = document.getElementById('dropZone');
+    const zipInput = document.getElementById('zipInput');
+    const zipFileName = document.getElementById('zipFileName');
+    let selectedFile = null;
+
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault(); dropZone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f) setFile(f);
+    });
+    zipInput.addEventListener('change', () => { if (zipInput.files[0]) setFile(zipInput.files[0]); });
+
+    function setFile(f) {
+      if (!f.name.endsWith('.zip') && f.type !== 'application/zip' && f.type !== 'application/x-zip-compressed') {
+        showStatus('Seuls les fichiers .zip sont acceptés.', 'error'); return;
+      }
+      if (f.size > 200 * 1024 * 1024) { showStatus('Fichier trop lourd (max 200 Mo).', 'error'); return; }
+      selectedFile = f;
+      zipFileName.textContent = `✓ ${f.name} (${(f.size / 1024 / 1024).toFixed(1)} Mo)`;
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('statusMsg');
+      el.style.display = 'block';
+      el.style.background = type === 'error' ? 'rgba(255,45,45,.1)' : 'rgba(0,212,106,.1)';
+      el.style.border = `1px solid ${type === 'error' ? 'rgba(255,45,45,.3)' : 'rgba(0,212,106,.3)'}`;
+      el.style.color = type === 'error' ? '#ff2d2d' : '#00d46a';
+      el.textContent = msg;
+    }
+
+    // Submit
+    document.getElementById('submitBtn').addEventListener('click', async () => {
+      const title = document.getElementById('packTitle').value.trim();
+      const email = document.getElementById('vendorEmail').value.trim();
+      const price = parseFloat(document.getElementById('packPrice').value);
+
+      if (!title) { showStatus('Entre le nom du pack.', 'error'); return; }
+      if (!email || !email.includes('@')) { showStatus('Email invalide.', 'error'); return; }
+      if (!price || price < 1) { showStatus('Prix minimum : 1€.', 'error'); return; }
+      if (!selectedFile) { showStatus('Sélectionne un fichier .zip.', 'error'); return; }
+      if (!window.Stripe) { showStatus('Stripe non chargé.', 'error'); return; }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Upload en cours…';
+
+      // Progress UI
+      document.getElementById('progressLabel').style.display = 'block';
+      document.getElementById('progressWrap').style.display = 'block';
+      const bar = document.getElementById('progressBar');
+      let prog = 0;
+      const progInterval = setInterval(() => {
+        prog = Math.min(prog + 2, 85);
+        bar.style.width = prog + '%';
+      }, 200);
+
+      try {
+        // 1. Upload ZIP to Vercel Blob
+        const blob = await upload(selectedFile.name, selectedFile, {
+          access: 'public',
+          handleUploadUrl: '/api/upload-token',
+        });
+
+        clearInterval(progInterval); bar.style.width = '100%';
+
+        // 2. Create pack in DB
+        const packRes = await fetch('/create-pack', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, email, priceCents: Math.round(price * 100), blobUrl: blob.url })
+        });
+        const packData = await packRes.json();
+        if (!packData.packId) throw new Error(packData.message || 'Erreur création pack');
+
+        // 3. Create activation session (9€)
+        const sessRes = await fetch('/create-activation-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ packId: packData.packId })
+        });
+        const sessData = await sessRes.json();
+        if (!sessData.id) throw new Error(sessData.message || 'Erreur session Stripe');
+
+        const stripe = Stripe(window.STRIPE_PUBLIC_KEY);
+        await stripe.redirectToCheckout({ sessionId: sessData.id });
+
+      } catch (err) {
+        clearInterval(progInterval);
+        showStatus('Erreur : ' + err.message, 'error');
+        btn.disabled = false;
+        btn.textContent = 'Uploader et payer l\'activation (9€) →';
+      }
+    });
+  </script>
+</body>
+</html>
