@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample Pack — CP9 Tools</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pack-card {
+      max-width: 480px; margin: 0 auto;
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: var(--radius-lg); padding: 40px;
+      text-align: center;
+    }
+    .folder-icon {
+      width: 100px; height: 80px; margin: 0 auto 28px;
+      position: relative;
+    }
+    .folder-icon .folder-tab {
+      position: absolute; top: 0; left: 0;
+      width: 40px; height: 14px;
+      background: var(--red); border-radius: 5px 5px 0 0;
+    }
+    .folder-icon .folder-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 66px;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      border: 2px solid var(--red);
+      border-radius: 0 6px 6px 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .folder-icon .folder-body span {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--red); font-family: var(--font-mono); font-weight: 700;
+    }
+
+    .pack-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: -1px; }
+    .pack-price { font-size: 42px; font-weight: 700; color: var(--red); margin: 16px 0; }
+    .pack-price span { font-size: 18px; color: var(--muted2); font-weight: 400; }
+
+    .email-input {
+      background: var(--bg3); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 12px 16px;
+      color: var(--white); font-family: var(--font); font-size: 14px;
+      width: 100%; margin-bottom: 14px; transition: var(--transition);
+    }
+    .email-input:focus { outline: none; border-color: var(--red); }
+    .email-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted2); display: block; margin-bottom: 6px; text-align: left; }
+
+    .pack-note { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+    .loading-state { color: var(--muted2); text-align: center; padding: 80px 0; }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="logo"><span>CP9</span> Tools</div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="generator.html">Cover Generator</a>
+      <a href="vendor-upload.html">Vendre un Pack</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:120px;">
+
+      <div id="loadingState" class="loading-state">
+        <p>Chargement du pack…</p>
+      </div>
+
+      <div id="errorState" style="display:none;text-align:center;padding:80px 0;">
+        <p style="font-size:48px;">⚠️</p>
+        <h2 style="margin-bottom:12px;">Pack introuvable</h2>
+        <p style="color:var(--muted2);">Ce pack n'existe pas ou n'est plus disponible.</p>
+        <a href="index.html" class="btn primary" style="margin-top:24px;display:inline-block;">Retour à l'accueil</a>
+      </div>
+
+      <div id="packView" class="pack-card" style="display:none;">
+        <div class="folder-icon">
+          <div class="folder-tab"></div>
+          <div class="folder-body"><span>.ZIP</span></div>
+        </div>
+
+        <p id="packTitle" class="pack-title">—</p>
+        <p id="packPrice" class="pack-price">—</p>
+
+        <label class="email-label" for="buyerEmail">Ton email (pour recevoir le lien)</label>
+        <input type="email" class="email-input" id="buyerEmail" placeholder="toi@example.com">
+
+        <button class="btn primary" id="buyBtn" style="width:100%;font-size:15px;padding:13px;">
+          Acheter le Pack →
+        </button>
+        <p class="pack-note">
+          Paiement sécurisé via Stripe. Le lien de téléchargement est envoyé par email après confirmation.
+        </p>
+
+        <div id="buyStatus" style="display:none;margin-top:14px;font-size:13px;"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 CP9 Tools — Tous droits réservés.</p>
+  </footer>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>window.STRIPE_PUBLIC_KEY = "pk_live_51SPOOXPyiTtxLPqUephWinG6z17VLrFnyZjE9k20CI2lurzmrkSWVnVI89O2PJy09GXXbd764Ahr9jPuKIQO01tH00UOOfdY4z";</script>
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header?.classList.toggle('scrolled', window.scrollY > 20));
+
+    const params = new URLSearchParams(window.location.search);
+    const packId = params.get('id');
+
+    async function loadPack() {
+      if (!packId) { showState('error'); return; }
+      try {
+        const res = await fetch('/api/pack/' + packId);
+        if (!res.ok) { showState('error'); return; }
+        const pack = await res.json();
+        document.getElementById('packTitle').textContent = pack.title;
+        document.getElementById('packPrice').innerHTML = (pack.price_cents / 100).toFixed(2) + ' <span>€</span>';
+        document.title = pack.title + ' — CP9 Tools';
+        showState('pack');
+      } catch { showState('error'); }
+    }
+
+    function showState(state) {
+      document.getElementById('loadingState').style.display = state === 'loading' ? 'block' : 'none';
+      document.getElementById('errorState').style.display  = state === 'error'   ? 'block' : 'none';
+      document.getElementById('packView').style.display    = state === 'pack'    ? 'block' : 'none';
+    }
+
+    document.getElementById('buyBtn').addEventListener('click', async () => {
+      const email = document.getElementById('buyerEmail').value.trim();
+      if (!email || !email.includes('@')) {
+        setStatus('Entre ton adresse email.', 'error'); return;
+      }
+      if (!window.Stripe) { setStatus('Stripe non chargé.', 'error'); return; }
+
+      const btn = document.getElementById('buyBtn');
+      btn.disabled = true; btn.textContent = 'Chargement…';
+
+      try {
+        const res = await fetch('/create-pack-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ packId, buyerEmail: email })
+        });
+        const data = await res.json();
+        if (!data.id) throw new Error(data.message || 'Erreur serveur');
+        const stripe = Stripe(window.STRIPE_PUBLIC_KEY);
+        await stripe.redirectToCheckout({ sessionId: data.id });
+      } catch (err) {
+        setStatus('Erreur : ' + err.message, 'error');
+        btn.disabled = false; btn.textContent = 'Acheter le Pack →';
+      }
+    });
+
+    function setStatus(msg, type) {
+      const el = document.getElementById('buyStatus');
+      el.style.display = 'block';
+      el.style.color = type === 'error' ? '#ff2d2d' : '#00d46a';
+      el.textContent = msg;
+    }
+
+    loadPack();
+  </script>
+</body>
+</html>
