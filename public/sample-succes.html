@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Téléchargement — CP9 Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="logo"><span>CP9</span> Tools</div>
+    <nav class="nav"><a href="index.html">Accueil</a></nav>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:140px;text-align:center;max-width:480px;margin:0 auto;">
+
+      <div id="loadingView"><p style="color:var(--muted2);">Préparation du téléchargement…</p></div>
+
+      <div id="successView" style="display:none;">
+        <p style="font-size:64px;margin-bottom:20px;">📦</p>
+        <h1 style="font-size:clamp(24px,4vw,40px);margin-bottom:12px;">Paiement confirmé !</h1>
+        <p style="color:var(--muted2);font-size:15px;line-height:1.7;margin-bottom:28px;">
+          Ton pack est prêt. Le téléchargement démarre automatiquement.<br>
+          Si ce n'est pas le cas, clique sur le bouton ci-dessous.
+        </p>
+        <button class="btn primary" id="downloadBtn" style="font-size:15px;padding:14px 32px;">
+          Télécharger mon pack →
+        </button>
+        <p style="font-size:12px;color:var(--muted);margin-top:16px;">
+          Ce lien est valable 24h. Un email de confirmation t'a été envoyé.
+        </p>
+      </div>
+
+      <div id="errorView" style="display:none;">
+        <p style="font-size:48px;margin-bottom:16px;">⚠️</p>
+        <h2 style="margin-bottom:12px;">Lien invalide ou expiré</h2>
+        <p style="color:var(--muted2);font-size:14px;line-height:1.7;">
+          Ce lien de téléchargement a déjà été utilisé ou a expiré (validité 24h).<br>
+          Vérifie ton email ou contacte-nous.
+        </p>
+        <a href="index.html" class="btn ghost" style="display:inline-block;margin-top:24px;">Retour à l'accueil</a>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer"><p>© 2025 CP9 Tools — Tous droits réservés.</p></footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header?.classList.toggle('scrolled', window.scrollY > 20));
+
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+
+    async function init() {
+      document.getElementById('loadingView').style.display = 'none';
+      if (!token) { document.getElementById('errorView').style.display = 'block'; return; }
+
+      try {
+        const res = await fetch('/download/' + token);
+        if (!res.ok) { document.getElementById('errorView').style.display = 'block'; return; }
+        const data = await res.json();
+
+        document.getElementById('successView').style.display = 'block';
+
+        function triggerDownload() {
+          const a = document.createElement('a');
+          a.href = data.url;
+          a.download = data.filename || 'sample-pack.zip';
+          a.click();
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', triggerDownload);
+        triggerDownload(); // auto-download
+      } catch {
+        document.getElementById('errorView').style.display = 'block';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
