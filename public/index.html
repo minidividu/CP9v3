@@ -3,9 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Génère une cover professionnelle noir & blanc pour ton projet musical en quelques secondes. Téléchargement HD 3000x3000px pour 5€.">
-  <title>CP9 Tools — Générateur de Cover pour Artistes</title>
+  <meta name="description" content="CP9 Tools — Génère tes covers et vends tes sample packs. Outils pro pour artistes indépendants.">
+  <title>CP9 Tools — Outils pour Artistes</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    @media (max-width: 768px) { .tools-grid { grid-template-columns: 1fr; } }
+
+    .tool-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-card:hover { border-color: var(--red); transform: translateY(-4px); }
+    .tool-icon { font-size: 52px; margin-bottom: 20px; }
+    .tool-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .tool-card p { color: var(--muted2); font-size: 14px; line-height: 1.7; flex: 1; margin-bottom: 24px; }
+    .tool-price {
+      font-size: 13px; color: var(--muted2); margin-bottom: 20px;
+      padding: 10px 14px; background: var(--bg3); border-radius: 8px;
+      display: flex; justify-content: space-between;
+    }
+    .tool-price span { color: var(--red); font-weight: 700; }
+  </style>
 </head>
 <body>
 
@@ -14,120 +43,122 @@
     <nav class="nav">
       <a href="index.html" class="active">Accueil</a>
       <a href="generator.html">Cover Generator</a>
+      <a href="vendor-upload.html">Sample Box</a>
     </nav>
-    <button class="burger" id="burgerBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </header>
-
   <nav class="nav-mobile" id="mobileNav">
     <a href="index.html" class="active">Accueil</a>
     <a href="generator.html">Cover Generator</a>
+    <a href="vendor-upload.html">Sample Box</a>
   </nav>
 
   <main>
 
     <!-- HERO -->
-    <section class="hero" style="min-height:92vh;">
-      <div class="hero-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-      </div>
-      <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;width:100%;text-align:center;">
-        <p class="hero-kicker">Outil pour artistes</p>
-        <h1 style="font-size:clamp(40px,6vw,80px);font-weight:700;letter-spacing:-3px;line-height:1.05;margin-bottom:20px;">
-          Ta cover.<br><span style="color:var(--red)">En 30 secondes.</span>
+    <section class="hero" style="min-height:88vh;">
+      <div class="hero-orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+      <div style="position:relative;z-index:1;max-width:720px;margin:0 auto;width:100%;text-align:center;">
+        <p class="hero-kicker">Plateforme pour artistes indépendants</p>
+        <h1 style="font-size:clamp(38px,6vw,76px);font-weight:700;letter-spacing:-3px;line-height:1.05;margin-bottom:20px;">
+          Crée. Vends.<br><span style="color:var(--red)">Vis de ta musique.</span>
         </h1>
-        <p style="font-size:17px;color:var(--muted2);max-width:480px;margin:0 auto 36px;line-height:1.7;">
-          Importe ton image, entre le nom de l'artiste et le titre. Le générateur applique un filtre noir & blanc contrasté avec du grain — style pro, rendu unique.
+        <p style="font-size:16px;color:var(--muted2);max-width:480px;margin:0 auto 36px;line-height:1.7;">
+          Deux outils pensés pour les artistes : un générateur de cover professionnel et une boutique pour vendre tes sample packs.
         </p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-          <a href="generator.html" class="btn primary" style="font-size:16px;padding:14px 32px;">
-            Créer ma cover →
-          </a>
-          <a href="#how" class="btn ghost" style="font-size:16px;padding:14px 32px;">
-            Comment ça marche
-          </a>
+          <a href="generator.html" class="btn primary" style="font-size:15px;padding:13px 28px;">Créer ma cover</a>
+          <a href="vendor-upload.html" class="btn secondary" style="font-size:15px;padding:13px 28px;">Vendre un pack</a>
         </div>
-        <p style="margin-top:20px;font-size:13px;color:var(--muted);">
-          Prévisualisation <strong style="color:var(--white);">gratuite</strong> · HD 3000×3000px à <strong style="color:var(--red);">5€</strong>
-        </p>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section" id="how">
-      <span class="section-label">Comment ça marche</span>
-      <h2>3 étapes, c'est tout</h2>
-      <p class="section-subtitle">Pas besoin de Photoshop. Pas besoin d'un graphiste.</p>
+    <!-- OUTILS -->
+    <section class="section">
+      <span class="section-label">Nos outils</span>
+      <h2>Tout ce dont tu as besoin</h2>
+      <p class="section-subtitle">Simple, rapide, pro. Pas de compte requis.</p>
       <div class="divider"></div>
 
-      <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:40px;">
+      <div class="tools-grid">
 
-        <div class="card" data-animate style="text-align:center;padding:36px 24px;">
-          <div style="font-size:48px;margin-bottom:16px;">🖼</div>
-          <h3 style="margin-bottom:10px;">1. Importe</h3>
-          <p style="color:var(--muted2);font-size:14px;line-height:1.6;">Glisse n'importe quelle photo — portrait, paysage, artwork. JPG, PNG, WEBP.</p>
+        <!-- Cover Generator -->
+        <div class="tool-card" data-animate>
+          <div class="tool-icon">🎨</div>
+          <h3>Cover Generator</h3>
+          <p>
+            Importe une photo, entre le nom de l'artiste et le titre de ton projet.
+            Filtre noir & blanc contrasté avec grain — rendu pro en 30 secondes.
+            Télécharge en PNG 3000×3000px, prêt pour Spotify, Distrokid, Apple Music.
+          </p>
+          <div class="tool-price">
+            <span style="color:var(--muted2);">Aperçu</span> <span>Gratuit</span>
+          </div>
+          <div class="tool-price">
+            <span style="color:var(--muted2);">Téléchargement HD 3000×3000</span> <span>5€</span>
+          </div>
+          <a href="generator.html" class="btn primary">Lancer le générateur →</a>
         </div>
 
-        <div class="card" data-animate style="text-align:center;padding:36px 24px;">
-          <div style="font-size:48px;margin-bottom:16px;">✏️</div>
-          <h3 style="margin-bottom:10px;">2. Personnalise</h3>
-          <p style="color:var(--muted2);font-size:14px;line-height:1.6;">Nom de l'artiste, titre du projet, choix de la police. Prévisualise en temps réel.</p>
-        </div>
-
-        <div class="card" data-animate style="text-align:center;padding:36px 24px;">
-          <div style="font-size:48px;margin-bottom:16px;">⬇️</div>
-          <h3 style="margin-bottom:10px;">3. Télécharge</h3>
-          <p style="color:var(--muted2);font-size:14px;line-height:1.6;">Paiement sécurisé via Stripe. Fichier PNG 3000×3000px prêt pour Spotify, Distrokid, etc.</p>
+        <!-- Sample Box -->
+        <div class="tool-card" data-animate>
+          <div class="tool-icon">📦</div>
+          <h3>Sample Box</h3>
+          <p>
+            Upload ton pack de samples en .zip, fixe ton prix, et commence à vendre.
+            Les acheteurs paient directement via Stripe — le lien de téléchargement
+            leur est envoyé par email après confirmation du paiement.
+          </p>
+          <div class="tool-price">
+            <span style="color:var(--muted2);">Mise en ligne</span> <span>9€ (unique)</span>
+          </div>
+          <div class="tool-price">
+            <span style="color:var(--muted2);">Commission sur ventes</span> <span>0%</span>
+          </div>
+          <a href="vendor-upload.html" class="btn primary">Vendre mon pack →</a>
         </div>
 
       </div>
     </section>
 
-    <!-- PRICING -->
-    <section class="section" style="background:var(--bg2);border-radius:var(--radius-lg);padding:60px 40px;max-width:900px;margin:0 auto 60px;">
-      <span class="section-label">Tarif</span>
-      <h2>Simple et transparent</h2>
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="section" style="background:var(--bg2);border-radius:var(--radius-lg);padding:60px 40px;max-width:1000px;margin:0 auto 60px;">
+      <span class="section-label">Fonctionnement</span>
+      <h2>Rapide à comprendre</h2>
       <div class="divider"></div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px;">
-
-        <div class="card" style="padding:32px;border:1px solid var(--border2);">
-          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted2);margin-bottom:16px;">Prévisualisation</p>
-          <p style="font-size:48px;font-weight:700;margin-bottom:8px;">Gratuit</p>
-          <p style="color:var(--muted2);font-size:14px;margin-bottom:24px;">Aperçu 600×600px dans le navigateur.</p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--muted2);">
-            <li>✓ Filtre noir & blanc</li>
-            <li>✓ Grain & contraste</li>
-            <li>✓ Texte personnalisé</li>
-            <li style="color:var(--muted);">✗ Téléchargement</li>
-          </ul>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:40px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:36px;margin-bottom:12px;">🖼</div>
+          <h4 style="margin-bottom:8px;">Importe</h4>
+          <p style="font-size:13px;color:var(--muted2);line-height:1.6;">Photo ou ZIP, directement depuis ton ordi.</p>
         </div>
-
-        <div class="card" style="padding:32px;border:2px solid var(--red);position:relative;overflow:hidden;">
-          <div style="position:absolute;top:16px;right:16px;background:var(--red);color:#fff;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;letter-spacing:1px;">POPULAIRE</div>
-          <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:16px;">HD Download</p>
-          <p style="font-size:48px;font-weight:700;margin-bottom:8px;">5€</p>
-          <p style="color:var(--muted2);font-size:14px;margin-bottom:24px;">Fichier PNG 3000×3000px, prêt à distribuer.</p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--muted2);">
-            <li>✓ Filtre noir & blanc</li>
-            <li>✓ Grain & contraste</li>
-            <li>✓ Texte personnalisé</li>
-            <li>✓ <strong style="color:var(--white);">PNG 3000×3000px</strong></li>
-            <li>✓ Paiement Stripe sécurisé</li>
-          </ul>
-          <a href="generator.html" class="btn primary" style="margin-top:24px;display:block;text-align:center;">Créer ma cover →</a>
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:36px;margin-bottom:12px;">✏️</div>
+          <h4 style="margin-bottom:8px;">Personnalise</h4>
+          <p style="font-size:13px;color:var(--muted2);line-height:1.6;">Texte, police, prix — tout est modifiable.</p>
         </div>
-
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:36px;margin-bottom:12px;">💳</div>
+          <h4 style="margin-bottom:8px;">Paye</h4>
+          <p style="font-size:13px;color:var(--muted2);line-height:1.6;">Stripe sécurisé — pas de compte requis.</p>
+        </div>
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:36px;margin-bottom:12px;">⬇️</div>
+          <h4 style="margin-bottom:8px;">Télécharge</h4>
+          <p style="font-size:13px;color:var(--muted2);line-height:1.6;">Lien envoyé par email, disponible 24h.</p>
+        </div>
       </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- CTA -->
     <section class="section" style="text-align:center;padding-bottom:80px;">
-      <h2 style="font-size:clamp(28px,4vw,52px);margin-bottom:16px;">Prêt à créer ta cover ?</h2>
-      <p style="color:var(--muted2);margin-bottom:32px;font-size:16px;">Aucun compte requis. Résultat immédiat.</p>
-      <a href="generator.html" class="btn primary" style="font-size:16px;padding:16px 40px;">Lancer le générateur →</a>
+      <h2 style="font-size:clamp(26px,4vw,48px);margin-bottom:14px;">Prêt à commencer ?</h2>
+      <p style="color:var(--muted2);margin-bottom:32px;">Aucun compte. Résultat immédiat.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="generator.html" class="btn primary" style="font-size:15px;padding:13px 28px;">Cover Generator</a>
+        <a href="vendor-upload.html" class="btn secondary" style="font-size:15px;padding:13px 28px;">Vendre un Sample Pack</a>
+      </div>
     </section>
 
   </main>
